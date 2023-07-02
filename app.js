@@ -52,7 +52,7 @@ function TimeCalcCommand(channel, message) {
         return
     }
     // Gets string with all possible times under 5 min from valid score
-    let timeMessage = timeCalc.CalculatePossibleTimes(score)
+    let timeMessage = timeCalc.calculatePossibleTimes(score)
     
     //if there are no valid times, sends invalid score message
     if(timeMessage == '') {
