@@ -2,6 +2,16 @@ require('dotenv').config()
 const tmi = require('tmi.js')
 const timeCalc = require('./timeCalc')
 
+const channelCount = process.env.CHANNEL_COUNT;
+
+let channelsList = []
+
+for(let i = 0; i < channelCount; i++) {
+  channelsList.push(process.env['CHANNEL_' + (i + 1)]);
+}
+
+console.log('Active in: ' + channelsList)
+
 const client = new tmi.Client({
     connection: {
         secure: true,
@@ -11,7 +21,7 @@ const client = new tmi.Client({
         username: process.env.TWITCH_BOT_USERNAME,
         password: process.env.TWITCH_OATH_TOKEN
     },
-    channels: [process.env.CHANNEL_1, process.env.CHANNEL_2, process.env.CHANNEL_3]
+    channels: channelsList
 })
 
 client.connect().catch(console.error)
@@ -34,7 +44,7 @@ client.on('message', (channel, tags, message, self) => {
         return
     }
 
-    console.log(tags.username + ': ' + message)
+    console.log(tags.username + ' in ' + channel + ': ' + message)
 })
 
 // Parses command and gets any valid times from given score if possible
