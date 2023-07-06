@@ -11,7 +11,7 @@ const client = new tmi.Client({
         username: process.env.TWITCH_BOT_USERNAME,
         password: process.env.TWITCH_OATH_TOKEN
     },
-    channels: [process.env.CHANNEL_1, process.env.CHANNEL_2]
+    channels: [process.env.CHANNEL_1, process.env.CHANNEL_2, process.env.CHANNEL_3]
 })
 
 client.connect().catch(console.error)
