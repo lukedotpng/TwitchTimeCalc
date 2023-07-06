@@ -3,7 +3,7 @@ const tmi = require('tmi.js')
 const timeCalc = require('./timeCalc')
 
 const channelCount = process.env.CHANNEL_COUNT;
-
+//test
 let channelsList = []
 
 for(let i = 0; i < channelCount; i++) {
