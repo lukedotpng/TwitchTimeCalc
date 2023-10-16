@@ -9,7 +9,7 @@ const client = new tmi.Client({
   },
   identity: {
     username: "timecalc",
-    password: process.env.OATH_TOKEN,
+    password: process.env.OAUTH_TOKEN,
   },
   channels: [
     process.env.CHANNEL_1,
