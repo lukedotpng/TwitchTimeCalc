@@ -2,16 +2,6 @@ require("dotenv").config();
 const tmi = require("tmi.js");
 const timeCalc = require("./timeCalc");
 
-const channelCount = process.env.CHANNEL_COUNT;
-//test
-let channelsList = [];
-
-for (let i = 0; i < channelCount; i++) {
-  channelsList.push(process.env["CHANNEL_" + (i + 1)]);
-}
-
-console.log("Active in: " + channelsList);
-
 const client = new tmi.Client({
   connection: {
     secure: true,
@@ -21,7 +11,12 @@ const client = new tmi.Client({
     username: "timecalc",
     password: process.env.OATH_TOKEN,
   },
-  channels: channelsList,
+  channels: [
+    process.env.CHANNEL_1,
+    process.env.CHANNEL_2,
+    process.env.CHANNEL_3,
+    process.env.CHANNEL_4,
+  ],
 });
 
 client.connect().catch(console.error);
