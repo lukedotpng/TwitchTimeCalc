@@ -74,3 +74,6 @@ function GetChatterLevel(tags) {
 
   return isBroadcaster || isMod;
 }
+
+// Exporting for vercel :D
+export default client;
