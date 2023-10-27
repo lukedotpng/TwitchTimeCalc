@@ -2,7 +2,7 @@ require("dotenv").config();
 const tmi = require("tmi.js");
 const timeCalc = require("./timeCalc");
 
-const client = new tmi.Client({
+export default client = new tmi.Client({
   connection: {
     secure: true,
     reconnect: true,
