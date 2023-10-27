@@ -2,7 +2,7 @@ require("dotenv").config();
 const tmi = require("tmi.js");
 const timeCalc = require("./timeCalc");
 
-export default client = new tmi.Client({
+const client = new tmi.Client({
   connection: {
     secure: true,
     reconnect: true,
@@ -74,3 +74,5 @@ function GetChatterLevel(tags) {
 
   return isBroadcaster || isMod;
 }
+
+export default client;
