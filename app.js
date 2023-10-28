@@ -2,6 +2,25 @@ require("dotenv").config();
 const tmi = require("tmi.js");
 const timeCalc = require("./timeCalc");
 
+const getChannelEnvVariables = () => {
+  let atEndOfChannelVariables = false;
+  let channelsList = [];
+  let channelIndex = 1;
+
+  while (!atEndOfChannelVariables) {
+    if (process.env[`CHANNEL_${channelIndex}`]) {
+      channelsList.push(process.env[`CHANNEL_${channelIndex}`]);
+    } else {
+      atEndOfChannelVariables = true;
+    }
+    channelIndex++;
+    console.log("Checked channel ", channelIndex);
+  }
+  return channelsList;
+};
+
+const channelsList = getChannelEnvVariables();
+
 const client = new tmi.Client({
   connection: {
     secure: true,
@@ -11,12 +30,7 @@ const client = new tmi.Client({
     username: "timecalc",
     password: process.env.OAUTH_TOKEN,
   },
-  channels: [
-    process.env.CHANNEL_1,
-    process.env.CHANNEL_2,
-    process.env.CHANNEL_3,
-    process.env.CHANNEL_4,
-  ],
+  channels: channelsList,
 });
 
 client.connect().catch(console.error);
@@ -75,4 +89,4 @@ function GetChatterLevel(tags) {
   return isBroadcaster || isMod;
 }
 
-export default client;
+// export default client;
