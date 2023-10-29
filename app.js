@@ -14,12 +14,12 @@ const getChannelEnvVariables = () => {
       atEndOfChannelVariables = true;
     }
     channelIndex++;
-    console.log("Checked channel ", channelIndex);
   }
   return channelsList;
 };
 
 const channelsList = getChannelEnvVariables();
+console.log("Time Calculator active in:", channelsList.join(", "));
 
 const client = new tmi.Client({
   connection: {
