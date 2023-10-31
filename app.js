@@ -62,7 +62,7 @@ function TimeCalcCommand(channel, message) {
 
   //if argument is blank, sends example on proper command usage
   if (score == "") {
-    client.say(channel, "Time Calc Example: !time (score)");
+    client.say(channel, "Example: !time [score]");
     return;
   } //if argument is not a number, sends "invalid score" message
   else if (isNaN(score)) {
