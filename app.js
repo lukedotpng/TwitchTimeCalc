@@ -2,6 +2,25 @@ require("dotenv").config();
 const tmi = require("tmi.js");
 const timeCalc = require("./timeCalc");
 
+const getChannelEnvVariables = () => {
+  let atEndOfChannelVariables = false;
+  let channelsList = [];
+  let channelIndex = 1;
+
+  while (!atEndOfChannelVariables) {
+    if (process.env[`CHANNEL_${channelIndex}`]) {
+      channelsList.push(process.env[`CHANNEL_${channelIndex}`]);
+    } else {
+      atEndOfChannelVariables = true;
+    }
+    channelIndex++;
+  }
+  return channelsList;
+};
+
+const channelsList = getChannelEnvVariables();
+console.log("Time Calculator active in:", channelsList.join(", "));
+
 const client = new tmi.Client({
   connection: {
     secure: true,
@@ -11,12 +30,7 @@ const client = new tmi.Client({
     username: "timecalc",
     password: process.env.OAUTH_TOKEN,
   },
-  channels: [
-    process.env.CHANNEL_1,
-    process.env.CHANNEL_2,
-    process.env.CHANNEL_3,
-    process.env.CHANNEL_4,
-  ],
+  channels: channelsList,
 });
 
 client.connect().catch(console.error);
@@ -48,7 +62,7 @@ function TimeCalcCommand(channel, message) {
 
   //if argument is blank, sends example on proper command usage
   if (score == "") {
-    client.say(channel, "Time Calc Example: !time (score)");
+    client.say(channel, "Example: !time [score]");
     return;
   } //if argument is not a number, sends "invalid score" message
   else if (isNaN(score)) {
@@ -74,3 +88,5 @@ function GetChatterLevel(tags) {
 
   return isBroadcaster || isMod;
 }
+
+// export default client;
