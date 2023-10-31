@@ -2,9 +2,9 @@
 
 ### Interaction with the bot:
 
-Type `!time` in a twitch chat, followed by the score shown on your mission rating screen. If a valid time is given, the bot will send all possible times in the format of **mm:ss.ms** (`00:00.000`). If an invalid score is given, then the bot will send `invalid score :(`. If no score is given, then the bot will send `Ex. !time [score]`.
+Type `!time` in a twitch chat, followed by the score shown on your mission rating screen. If a valid time is given, the bot will send all possible times in the format of **mm:ss.ms** (`00:00.000`). If an invalid score is given, then the bot will send `invalid score :(`. If no score is given, then the bot will send `Example: !time [score]`.
 
-Currently this bot is running on a Oracle cloud VM and using through the [timecalc](https://twitch.tv/timecalc) twitch account. It is currently active in four twitch channels, [lukedotpng](https://twitch.tv/lukedotpng) (me), [Vezlaye](https://twitch.tv/vezlaye) (goat), [Zionicle\_](https://twitch.tv/zionicle_), and [Zebulaus](https://twitch.tv/zebulaus).
+Currently this bot is running on a Oracle cloud VM and sending messages through the [timecalc](https://twitch.tv/timecalc) twitch account. Currently it's active in four twitch channels, [lukedotpng](https://twitch.tv/lukedotpng) (me), [Vezlaye](https://twitch.tv/vezlaye) (goat), [Zionicle\_](https://twitch.tv/zionicle_), and [Zebulaus](https://twitch.tv/zebulaus).
 
 ### How to use:
 
