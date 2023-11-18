@@ -14,6 +14,8 @@ You can easily run your own instance on a local machine, cloud machine, or throu
 
 - **CHANNEL_N**: Here you will list the channels you want your bot active in, starting at `CHANNEL_1`. You can list as many as you'd like and the bot will add them. Be sure to keep the variables sequencial, as the bot will stop checking for more channels if a variable in the sequence is undefined.
 
+For the best performance, make sure to mod the bot account in your chat, as twitch rate limits Mods, VIPs, and regular chatters differently with the API.
+
 ### How it works
 
 The calculations are from [Solderq35](https://github.com/solderq35)'s Hitman time calculator website, found [here](https://solderq35.github.io/time-calc-under-5/). Thank you Solder :D
