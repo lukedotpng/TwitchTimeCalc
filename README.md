@@ -8,12 +8,13 @@ Currently this bot is running on a Oracle cloud VM and sending messages through 
 
 ### How to use:
 
-You can easily run your own instance on a local machine, cloud machine, or through a service like [Railway](https://railway.app/) or [Heroku](https://www.heroku.com/). Once you have downloaded the code, you need to make a `.env` file (or add environment variables) that contain the following variables:
+You can easily run your own instance on a local machine, cloud machine, or through a service like [Railway](https://railway.app/) or [Heroku](https://www.heroku.com/). If you are using a local / cloud machine, you will need to make a `.env` file (or add environment variables) that contain the following variables:
 
-- **OAUTH_TOKEN**: This is the token that will allow the app to send messages through a twitch account. You can easily get a token for your account using [TwitchTokenGenerator](https://twitchtokengenerator.com)
+- **OAUTH_TOKEN**: This is the token that will allow the app to connect to Twitch. You can easily get a token for your account using [TwitchTokenGenerator](https://twitchtokengenerator.com). It's not recommended that you use this website for permanent tokens, but I haven't had a problem yet :D.
 
 - **CHANNEL_N**: Here you will list the channels you want your bot active in, starting at `CHANNEL_1`. You can list as many as you'd like and the bot will add them. Be sure to keep the variables sequencial, as the bot will stop checking for more channels if a variable in the sequence is undefined.
 
-### How it works
+### Tools used
 
-The calculations are from [Solderq35](https://github.com/solderq35)'s Hitman time calculator website, found [here](https://solderq35.github.io/time-calc-under-5/). Thank you Solder :D
+- To interact with the Twitch API I use [tmi.js](https://tmijs.com/)
+- The calculations are from [Solderq35](https://github.com/solderq35)'s Hitman time calculator website, found [here](https://solderq35.github.io/time-calc-under-5/). Thank you Solder :D
